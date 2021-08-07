@@ -14,5 +14,5 @@ import javax.inject.Inject
 class UiState @Inject constructor()
     : ViewModel() {
 
-        var type by mutableStateOf(0)
+        var type by mutableStateOf(false)
 }

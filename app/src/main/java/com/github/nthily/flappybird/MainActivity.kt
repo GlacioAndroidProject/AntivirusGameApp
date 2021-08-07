@@ -24,6 +24,7 @@ import com.github.nthily.flappybird.game.BirdState
 import com.github.nthily.flappybird.game.Game
 import com.github.nthily.flappybird.game.GameState
 import com.github.nthily.flappybird.ui.theme.FlappyBirdTheme
+import dagger.hilt.android.qualifiers.ApplicationContext
 
 class MainActivity : ComponentActivity() {
     @ExperimentalAnimationApi
@@ -39,10 +40,13 @@ class MainActivity : ComponentActivity() {
                     topBar = {
                         TopAppBar(
                             title = {
-                                Text("FlappyBird")
+                                Text("Attack On Covid19")
                             },
                             actions = {
-                                IconButton(onClick = { if(viewModel.type == 0) viewModel.type = 1  else viewModel.type = 0}) {
+                                IconButton(onClick = {
+                                    viewModel.type != viewModel.type
+                                    })
+                                {
                                     Icon(painterResource(id = R.drawable.image), null)
                                 }
                             },
@@ -104,7 +108,7 @@ fun GameUI(game: Game){
     )
 
     Crossfade(targetState = viewModel.type) {
-        if(it == 0){
+        if(it == false){
             Background(R.drawable.bkg)
         } else Background(R.drawable.bkg2)
     }
@@ -116,13 +120,8 @@ fun GameUI(game: Game){
         val pipeUpX by animateFloatAsState(pipe.pipeUpX, tween(150, easing = LinearEasing))
 
         if(game.gameState == GameState.Running || game.gameState == GameState.Over){
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight()
-                    .offset(x = pipeDownX.dp),
-                contentAlignment = Alignment.TopEnd
-            ){
+            Box(modifier = Modifier.fillMaxWidth().fillMaxHeight().offset(x = pipeDownX.dp), contentAlignment = Alignment.TopEnd)
+            {
                 Image(
                     painter = painterResource(id = R.drawable.pipedown),
                     contentDescription = null,
@@ -132,20 +131,11 @@ fun GameUI(game: Game){
                 )
             }
 
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight()
-                    .offset(x = pipeUpX.dp),
-                contentAlignment = Alignment.BottomEnd
-            ){
-                Image(
-                    painter = painterResource(id = R.drawable.pipeup),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(width = pipe.width, height = pipe.pipeUpHeight),
-                    contentScale = ContentScale.FillBounds
-                )
+            Box(modifier = Modifier.fillMaxWidth().fillMaxHeight().offset(x = pipeUpX.dp), contentAlignment = Alignment.BottomEnd)
+            {
+                Image(painter = painterResource(id = R.drawable.pipeup), contentDescription = null,
+                    modifier = Modifier.size(width = pipe.width, height = pipe.pipeUpHeight),
+                    contentScale = ContentScale.FillBounds)
             }
         }
     }
