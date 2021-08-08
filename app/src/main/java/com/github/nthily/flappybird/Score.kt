@@ -8,6 +8,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -27,6 +28,7 @@ fun Score(game: Game){
             Text(
                 text = game.score.toString(),
                 style = MaterialTheme.typography.h3,
+                color = Color.White,
                 fontWeight = FontWeight.W700,
                 fontFamily = FontFamily(
                     Font(R.font.fb, FontWeight.W700)

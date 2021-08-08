@@ -126,7 +126,7 @@ fun GameUI(game: Game){
                     painter = painterResource(id = R.drawable.pipedown),
                     contentDescription = null,
                     modifier = Modifier
-                        .size(width = pipe.width, height = pipe.pipeDownHeight),
+                        .size(width = pipe.pipeDownWidth, height = pipe.pipeDownHeight),
                     contentScale = ContentScale.FillBounds
                 )
             }
@@ -134,7 +134,7 @@ fun GameUI(game: Game){
             Box(modifier = Modifier.fillMaxWidth().fillMaxHeight().offset(x = pipeUpX.dp), contentAlignment = Alignment.BottomEnd)
             {
                 Image(painter = painterResource(id = R.drawable.pipeup), contentDescription = null,
-                    modifier = Modifier.size(width = pipe.width, height = pipe.pipeUpHeight),
+                    modifier = Modifier.size(width = pipe.pipeUpWidth, height = pipe.pipeUpHeight),
                     contentScale = ContentScale.FillBounds)
             }
         }
