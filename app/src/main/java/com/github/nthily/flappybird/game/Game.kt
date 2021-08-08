@@ -35,7 +35,7 @@ class Game {
                     birdState = BirdState.Falling
                 }
                 BirdState.Falling -> {
-                    bird.y += 5f
+                    bird.y += 7f
                 }
             }
 

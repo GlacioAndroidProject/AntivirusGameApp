@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
                     topBar = {
                         TopAppBar(
                             title = {
-                                Text("Attack On Covid19")
+                                Text(text = "Attack On Covid19", color = Color.White)
                             },
                             actions = {
                                 IconButton(onClick = {
@@ -79,21 +79,21 @@ fun GameUI(game: Game){
 
     val interactionSource = remember { MutableInteractionSource() }
 
-    // 未开始游戏前的上下动画
+    // Up and down animation before starting the game
 
     val unStartedAnimation by animateFloatAsState(
         targetValue = when(game.birdState){
-            BirdState.Jumping -> 25f
-            BirdState.Falling -> (-25f)
+            BirdState.Jumping -> 50f
+            BirdState.Falling -> (-50f)
         },
-        tween(500)
+        tween(400)
     )
 
 
     if(game.gameState == GameState.Unstarted){
-        if(unStartedAnimation == -25f) {
+        if(unStartedAnimation == -50f) {
             game.birdState = BirdState.Jumping
-        } else if(unStartedAnimation == 25f)game.birdState = BirdState.Falling
+        } else if(unStartedAnimation == 50f)game.birdState = BirdState.Falling
     }
 
 
@@ -113,11 +113,11 @@ fun GameUI(game: Game){
         } else Background(R.drawable.bkg2)
     }
 
-    // 柱子
+    // Pillar
     game.pipe.forEach{ pipe ->
 
-        val pipeDownX by animateFloatAsState(pipe.pipeDownX, tween(150, easing = LinearEasing))
-        val pipeUpX by animateFloatAsState(pipe.pipeUpX, tween(150, easing = LinearEasing))
+        val pipeDownX by animateFloatAsState(pipe.pipeDownX, tween(1000, easing = LinearEasing))
+        val pipeUpX by animateFloatAsState(pipe.pipeUpX, tween(1000, easing = LinearEasing))
 
         if(game.gameState == GameState.Running || game.gameState == GameState.Over){
             Box(modifier = Modifier.fillMaxWidth().fillMaxHeight().offset(x = pipeDownX.dp), contentAlignment = Alignment.TopEnd)
