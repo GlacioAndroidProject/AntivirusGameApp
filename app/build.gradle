@@ -9,7 +9,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.github.nthily.flappybird"
+        applicationId "com.github.TruongGlacio.AttackOnCovid19"
         minSdk 21
         targetSdk 30
         versionCode 1
@@ -25,6 +25,16 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+
+        AttackOnCovid19 {
+            applicationId "com.AttackOnCovid19"
+            versionCode 1
+            versionName "1.0"
         }
     }
     compileOptions {
