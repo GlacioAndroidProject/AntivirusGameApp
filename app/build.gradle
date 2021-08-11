@@ -9,7 +9,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.github.TruongGlacio.AttackOnCovid19"
+        applicationId "com.github.TruongGlacio.AttackOnVirus"
         minSdk 21
         targetSdk 30
         versionCode 1
@@ -31,8 +31,8 @@ android {
     flavorDimensions "default"
     productFlavors {
 
-        AttackOnCovid19 {
-            applicationId "com.AttackOnCovid19"
+        AttackOnVirus {
+            applicationId "com.AttackOnVirus"
             versionCode 1
             versionName "1.0"
         }

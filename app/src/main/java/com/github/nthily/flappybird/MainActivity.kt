@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
                     topBar = {
                         TopAppBar(
                             title = {
-                                Text(text = "Attack On Covid19", color = Color.White)
+                                Text(text = "Attack On Virus", color = Color.White)
                             },
                             actions = {
                                 IconButton(onClick = {
